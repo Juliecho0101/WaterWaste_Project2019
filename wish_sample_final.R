@@ -68,7 +68,16 @@ times2<- as.data.frame(times)
 
 # origin csv (1일 1row)에 start_time, end_time 컬럼 추가.  cbind 사용할 것
 ecph_add_startend <- cbind(db_sample_origin,optime_cnt[,3:5])
-  
+
+# 번외편 ,,, SD
+sd_new <- data.frame(ec_i_sdnew = runif(202,1.932,2.137),
+                     ec_o_sdnew = runif(202,1.429,1.502),
+                     ph_i_sdnew = runif(202,0.270,0.287),
+                     ph_o_sdnew = runif(202,0.270,0.274),
+                     bar_sdnew = runif(202,0.04,0.053),
+                     t_i_sdnew = runif(202,0.442,0.482),
+                     t_o_sdnew = runif(202,0.754,0.784))
+
 #sd 수정 
 ecph_add_startend$ec_i_sd <- sd_new$ec_i_sdnew
 ecph_add_startend$ec_o_sd <- sd_new$ec_o_sdnew
